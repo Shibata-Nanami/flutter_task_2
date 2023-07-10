@@ -7,7 +7,16 @@ class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('メニューA')),
+      appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.deepPurple, Colors.blue.shade200],
+            ),
+          ),
+        ),
+        title: const Text('メニューA'),
+      ),
       body: Center(
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
