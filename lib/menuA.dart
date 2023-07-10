@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -27,11 +26,61 @@ class AboutScreen extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            context.go('/');
+            showDialog<void>(
+                context: context,
+                builder: (_) {
+                  return const AlertDialogSample();
+                });
           },
           child: const Text('メニューA'),
         ),
       ),
+    );
+  }
+}
+
+class AlertDialogSample extends StatelessWidget {
+  const AlertDialogSample({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      contentPadding: EdgeInsets.zero,
+      actionsPadding: const EdgeInsets.all(50),
+      actionsAlignment: MainAxisAlignment.spaceEvenly,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30.0),
+      ),
+      content: Container(
+        height: 80,
+        alignment: Alignment.center,
+        child: const Text(
+          'メニューAです',
+          style: TextStyle(color: Colors.black, fontSize: 14.0),
+        ),
+      ),
+      actions: [
+        GestureDetector(
+          child: const Text(
+            'キャンセル',
+            style: TextStyle(color: Colors.black, fontSize: 12.0),
+          ),
+          onTap: () {
+            Navigator.pop(context);
+          },
+        ),
+        GestureDetector(
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Text(
+                'OK',
+                style: TextStyle(color: Colors.black, fontSize: 12.0),
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            }),
+      ],
     );
   }
 }
