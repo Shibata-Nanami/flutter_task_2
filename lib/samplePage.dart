@@ -8,6 +8,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(
+          color: Colors.black,
+          size: 30,
+        ),
         title: const Text(
           'サンプルページ',
           style: TextStyle(
@@ -17,19 +21,50 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.menu,
-              color: Colors.black,
-              size: 30,
-            ),
-            onPressed: () {
-              context.go('/about');
-            },
-          ),
-        ],
         backgroundColor: Colors.yellow,
+      ),
+      endDrawer: Drawer(
+        backgroundColor: Colors.grey,
+        child: Container(
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const ListTile(
+                title: Text("タイトル"),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: InkWell(
+                  onTap: () {
+                    context.go('/About');
+                  },
+                  child: const ListTile(
+                    title: Text("メニューA"),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: InkWell(
+                  onTap: () {},
+                  child: const ListTile(
+                    title: Text("メニューB"),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: InkWell(
+                  onTap: () {},
+                  child: const ListTile(
+                    title: Text("メニューC"),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
