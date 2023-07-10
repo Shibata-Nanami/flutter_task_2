@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task_2/screen1.dart';
-import 'package:flutter_task_2/screen2.dart';
+import 'package:flutter_task_2/samplePage.dart';
+import 'package:flutter_task_2/menuA.dart';
 import 'package:go_router/go_router.dart';
 
 final goRouter = GoRouter(
