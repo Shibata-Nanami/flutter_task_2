@@ -14,6 +14,7 @@ class HomeScreen extends StatelessWidget {
         ),
         title: const Text(
           'サンプルページ',
+          textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.black,
             fontSize: 18.0,
@@ -25,48 +26,71 @@ class HomeScreen extends StatelessWidget {
       ),
       endDrawer: Drawer(
         backgroundColor: Colors.grey,
-        child: Container(
-          alignment: Alignment.center,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const ListTile(
-                title: Text("タイトル"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const ListTile(
+              title: Text(
+                "タイトル",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              GestureDetector(
-                onTap: () {},
-                child: InkWell(
-                  onTap: () {
-                    context.go(
-                      '/about',
-                      extra: {'name': 'メニューA'},
-                    );
-                  },
-                  child: const ListTile(
-                    title: Text("メニューA"),
+            ),
+            GestureDetector(
+              onTap: () {},
+              child: InkWell(
+                onTap: () {
+                  context.go(
+                    '/about',
+                    extra: {
+                      'name': 'メニューA',
+                    },
+                  );
+                },
+                child: const ListTile(
+                  title: Text(
+                    "メニューA",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
-              GestureDetector(
+            ),
+            GestureDetector(
+              onTap: () {},
+              child: InkWell(
                 onTap: () {},
-                child: InkWell(
-                  onTap: () {},
-                  child: const ListTile(
-                    title: Text("メニューB"),
+                child: const ListTile(
+                  title: Text(
+                    "メニューB",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
-              GestureDetector(
+            ),
+            GestureDetector(
+              onTap: () {},
+              child: InkWell(
                 onTap: () {},
-                child: InkWell(
-                  onTap: () {},
-                  child: const ListTile(
-                    title: Text("メニューC"),
+                child: const ListTile(
+                  title: Text(
+                    "メニューC",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
