@@ -7,14 +7,29 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            context.go('/about');
-          },
-          child: const Text('Go to About'),
+      appBar: AppBar(
+        title: const Text(
+          'サンプルページ',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+          ),
         ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.menu,
+              color: Colors.black,
+              size: 30,
+            ),
+            onPressed: () {
+              context.go('/about');
+            },
+          ),
+        ],
+        backgroundColor: Colors.yellow,
       ),
     );
   }
