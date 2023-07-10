@@ -37,7 +37,10 @@ class HomeScreen extends StatelessWidget {
                 onTap: () {},
                 child: InkWell(
                   onTap: () {
-                    context.go('/About');
+                    context.go(
+                      '/about',
+                      extra: {'name': 'メニューA'},
+                    );
                   },
                   child: const ListTile(
                     title: Text("メニューA"),
