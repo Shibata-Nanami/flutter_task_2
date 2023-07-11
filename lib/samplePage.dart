@@ -24,12 +24,12 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.yellow,
       ),
-      endDrawer: Drawer(
+      endDrawer: const Drawer(
         backgroundColor: Colors.grey,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const ListTile(
+            ListTile(
               title: Text(
                 "タイトル",
                 style: TextStyle(
@@ -38,64 +38,40 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            InkWell(
-              onTap: () {
-                context.push(
-                  '/about',
-                  extra: {
-                    'name': 'メニューA',
-                  },
-                );
-              },
-              child: const ListTile(
-                title: Text(
-                  "メニューA",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                context.push(
-                  '/about',
-                  extra: {
-                    'name': 'メニューB',
-                  },
-                );
-              },
-              child: const ListTile(
-                title: Text(
-                  "メニューB",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                context.push(
-                  '/about',
-                  extra: {
-                    'name': 'メニューC',
-                  },
-                );
-              },
-              child: const ListTile(
-                title: Text(
-                  "メニューC",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
+            _MenuItem(label: 'メニューA'),
+            _MenuItem(label: 'メニューB'),
+            _MenuItem(label: 'メニューC'),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _MenuItem extends StatelessWidget {
+  const _MenuItem({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Scaffold.of(context).openDrawer();
+        context.go(
+          '/about',
+          extra: {
+            'name': label,
+          },
+        );
+      },
+      child: ListTile(
+        title: Text(
+          label,
+          style: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );

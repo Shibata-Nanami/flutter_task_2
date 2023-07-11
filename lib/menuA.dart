@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 ///
 /// [menuName]はDialogのタイトルに使う
@@ -10,9 +11,16 @@ class AboutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //デバッグコンソールに正しく値が出るかどうか確認用のコード
     print(menuName);
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            context.pop();
+          },
+        ),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -36,9 +44,7 @@ class AboutScreen extends StatelessWidget {
                 context: context,
                 builder: (_) {
                   return AlertDialogSample(
-                    menuName,
-                    menuName,
-                    title: 'lllll',
+                    menuName: menuName,
                   );
                 });
           },
@@ -50,16 +56,9 @@ class AboutScreen extends StatelessWidget {
 }
 
 class AlertDialogSample extends StatelessWidget {
-  const AlertDialogSample(
-    this.menuName,
-    this.menuName2, {
-    Key? key,
-    required this.title,
-  }) : super(key: key);
+  const AlertDialogSample({super.key, required this.menuName});
 
   final String menuName;
-  final String menuName2;
-  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -84,10 +83,13 @@ class AlertDialogSample extends StatelessWidget {
             'キャンセル',
             style: TextStyle(color: Colors.black, fontSize: 12.0),
           ),
+          //onTap:シングルクリック
           onTap: () {
-            Navigator.pop(context);
+            //pop:前のページに遷移するメソッド
+            context.pop();
           },
         ),
+        //GestureDetector:画面のタップやスワイプに関する処理の実装が可能
         GestureDetector(
             child: const Padding(
               padding: EdgeInsets.symmetric(horizontal: 10),
@@ -97,7 +99,7 @@ class AlertDialogSample extends StatelessWidget {
               ),
             ),
             onTap: () {
-              Navigator.pop(context);
+              context.pop();
             }),
       ],
     );
