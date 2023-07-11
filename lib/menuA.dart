@@ -43,7 +43,7 @@ class AboutScreen extends StatelessWidget {
             showDialog<void>(
                 context: context,
                 builder: (_) {
-                  return AlertDialogSample(
+                  return _AlertDialogSample(
                     menuName: menuName,
                   );
                 });
@@ -55,8 +55,8 @@ class AboutScreen extends StatelessWidget {
   }
 }
 
-class AlertDialogSample extends StatelessWidget {
-  const AlertDialogSample({super.key, required this.menuName});
+class _AlertDialogSample extends StatelessWidget {
+  const _AlertDialogSample({required this.menuName});
 
   final String menuName;
 
