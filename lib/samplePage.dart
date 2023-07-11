@@ -38,54 +38,59 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            GestureDetector(
-              onTap: () {},
-              child: InkWell(
-                onTap: () {
-                  context.go(
-                    '/about',
-                    extra: {
-                      'name': 'メニューA',
-                    },
-                  );
-                },
-                child: const ListTile(
-                  title: Text(
-                    "メニューA",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+            InkWell(
+              onTap: () {
+                context.push(
+                  '/about',
+                  extra: {
+                    'name': 'メニューA',
+                  },
+                );
+              },
+              child: const ListTile(
+                title: Text(
+                  "メニューA",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
             ),
-            GestureDetector(
-              onTap: () {},
-              child: InkWell(
-                onTap: () {},
-                child: const ListTile(
-                  title: Text(
-                    "メニューB",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+            InkWell(
+              onTap: () {
+                context.push(
+                  '/about',
+                  extra: {
+                    'name': 'メニューB',
+                  },
+                );
+              },
+              child: const ListTile(
+                title: Text(
+                  "メニューB",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
             ),
-            GestureDetector(
-              onTap: () {},
-              child: InkWell(
-                onTap: () {},
-                child: const ListTile(
-                  title: Text(
-                    "メニューC",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+            InkWell(
+              onTap: () {
+                context.push(
+                  '/about',
+                  extra: {
+                    'name': 'メニューC',
+                  },
+                );
+              },
+              child: const ListTile(
+                title: Text(
+                  "メニューC",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
