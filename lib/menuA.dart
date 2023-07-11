@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
+///
+/// [menuName]はDialogのタイトルに使う
+///
 class AboutScreen extends StatelessWidget {
-  const AboutScreen({super.key});
+  const AboutScreen({super.key, required this.menuName});
+
+  final String menuName;
 
   @override
   Widget build(BuildContext context) {
+    print(menuName);
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Container(
@@ -14,7 +20,7 @@ class AboutScreen extends StatelessWidget {
             ),
           ),
         ),
-        title: const Text('メニューA'),
+        title: Text(menuName),
       ),
       body: Center(
         child: ElevatedButton(
@@ -29,10 +35,14 @@ class AboutScreen extends StatelessWidget {
             showDialog<void>(
                 context: context,
                 builder: (_) {
-                  return const AlertDialogSample();
+                  return AlertDialogSample(
+                    menuName,
+                    menuName,
+                    title: 'lllll',
+                  );
                 });
           },
-          child: const Text('メニューA'),
+          child: Text(menuName),
         ),
       ),
     );
@@ -40,7 +50,16 @@ class AboutScreen extends StatelessWidget {
 }
 
 class AlertDialogSample extends StatelessWidget {
-  const AlertDialogSample({Key? key}) : super(key: key);
+  const AlertDialogSample(
+    this.menuName,
+    this.menuName2, {
+    Key? key,
+    required this.title,
+  }) : super(key: key);
+
+  final String menuName;
+  final String menuName2;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -54,9 +73,9 @@ class AlertDialogSample extends StatelessWidget {
       content: Container(
         height: 80,
         alignment: Alignment.center,
-        child: const Text(
-          'メニューAです',
-          style: TextStyle(color: Colors.black, fontSize: 14.0),
+        child: Text(
+          '$menuNameです',
+          style: const TextStyle(color: Colors.black, fontSize: 14.0),
         ),
       ),
       actions: [
