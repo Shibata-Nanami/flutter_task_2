@@ -60,6 +60,11 @@ class _AlertDialogSample extends StatelessWidget {
 
   final String menuName;
 
+  void handleOkButtonTap() {
+    //OKボタンが押されたときの処理
+    print('メニューAが選択');
+  }
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -91,16 +96,15 @@ class _AlertDialogSample extends StatelessWidget {
         ),
         //GestureDetector:画面のタップやスワイプに関する処理の実装が可能
         GestureDetector(
-            child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Text(
-                'OK',
-                style: TextStyle(color: Colors.black, fontSize: 12.0),
-              ),
+          onTap: handleOkButtonTap,
+          child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: Text(
+              'OK',
+              style: TextStyle(color: Colors.black, fontSize: 12.0),
             ),
-            onTap: () {
-              context.pop();
-            }),
+          ), // ハンドラ内で関数を呼び出す
+        ),
       ],
     );
   }
