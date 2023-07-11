@@ -14,7 +14,13 @@ final goRouter = GoRouter(
     GoRoute(
       path: '/about',
       pageBuilder: (context, state) {
-        return const MaterialPage(child: AboutScreen());
+        final Map<String, dynamic> extra = state.extra as Map<String, dynamic>;
+        String name = extra['name'];
+
+        return MaterialPage(
+            child: AboutScreen(
+          menuName: name,
+        ));
       },
       // routes: [
       //   GoRoute(
